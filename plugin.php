@@ -1,7 +1,7 @@
 <?php
 namespace MaxcomCompanion;
 use MaxcomCompanion\Widgets\Hello_World;
-use MaxcomCompanion\Widgets\Inline_Editing;
+use MaxcomCompanion\Widgets\Email_Submit;
 /**
  * Class Plugin
  *
@@ -60,7 +60,7 @@ class MaxcomPlugin {
 	 */
 	private function include_widgets_files() {
 		require_once( __DIR__ . '/widgets/hello-world.php' );
-		require_once( __DIR__ . '/widgets/inline-editing.php' );
+		require_once( __DIR__ . '/widgets/email-submit.php' );
 	}
 
 	/**
@@ -76,8 +76,8 @@ class MaxcomPlugin {
 		$this->include_widgets_files();
 
 		// Register Widgets
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Hello_World() );
-		\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Inline_Editing() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new Hello_World() );
+		\Elementor\Plugin::instance()->widgets_manager->register( new Email_Submit() );
 	}
 
 	/**
